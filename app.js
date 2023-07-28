@@ -8,12 +8,14 @@ const bodyParser = require('body-parser')
 const newTask = require('./models/newTask')
 const nodemailer = require('nodemailer')
 const nodeschedule = require('node-schedule')
+const cors = require('cors')
 require('dotenv').config()
 
 // MIDDLEWARE MOSTLY FOR GETTING THE FORM DATA FROM THE LOGIN AND SIGNUP PAGES
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 app.use(bodyParser.json())
+app.use(cors())
 
 // MONGOOSE... FOR CREATING A SCHEMA
 mongoose.connect(process.env.MONGO_URI)
