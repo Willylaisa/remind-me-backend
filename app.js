@@ -6,7 +6,6 @@ const newUser = require('./models/newUser')
 const { MongoClient } = require('mongodb')
 const bodyParser = require('body-parser')
 const newTask = require('./models/newTask')
-const cors = require('cors')
 const nodemailer = require('nodemailer')
 const nodeschedule = require('node-schedule')
 require('dotenv').config()
@@ -15,13 +14,6 @@ require('dotenv').config()
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 app.use(bodyParser.json())
-app.use(cors(
-    {
-        origin:["http://localhost:3000", "https://remind-me-app.onrender.com"],
-        methods: ['post', "get"],
-        credentials : true
-    }
-))
 
 // MONGOOSE... FOR CREATING A SCHEMA
 mongoose.connect(process.env.MONGO_URI)
