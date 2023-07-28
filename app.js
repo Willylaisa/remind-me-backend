@@ -15,10 +15,7 @@ require('dotenv').config()
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 app.use(bodyParser.json())
-app.use(cors({
-    origin:["http://localhost:3000", "https://remind-me-app.onrender.com"]
-}))
-
+app.use(cors())
 // MONGOOSE... FOR CREATING A SCHEMA
 mongoose.connect(process.env.MONGO_URI)
 mongoose.connection.on("error", err => {
