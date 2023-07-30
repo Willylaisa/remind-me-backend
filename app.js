@@ -82,7 +82,7 @@ app.get('/users/:id', async (req, res) => {
         })    
 })
 
-app.get('/tasks/', (req, res) => {  
+app.get('/tasks', (req, res) => {  
     theRealDeal()  
     newTask.find()
         .then((tasks)=> {
